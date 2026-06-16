@@ -1,0 +1,98 @@
+Fortnite
+Win64\FortniteClient-Win64-Shipping.exe
+
+Marvel Rivals
+Win64\Marvel-Win64-Shipping.exe
+
+PUBG
+Win64\TslGame.exe
+
+Terminull Brigade
+Win64\Rouge-Win64-Shipping.exe
+
+Where Winds Meet
+Win64\wwm.exe
+
+Wuthering Waves
+Win64\Wuthering Waves.exe
+
+Comet AI Browser
+Perplexity\Comet\Application\comet.exe
+
+Destiny 2
+Destiny 2\destiny2.exe
+
+Risk of Rain 2
+Risk of Rain 2\Risk of Rain 2.exe
+
+Storm Lancers Demo
+Storm Lancers Demo\StormLancersDemo.exe
+
+Path of Exile 2
+Grinding Gear Games\Path of Exile 2\pathofexile.exe
+
+Arc Raiders
+Arc Raiders\PioneerGame.exe
+
+Hunt: Showdown 1896
+win_x64\HuntGame.exe
+
+Delta Force
+Win64\DeltaForceClient-Win64-Shipping.exe
+
+Fallout 4
+Fallout4\Fallout4.exe
+
+Fallout 76
+Fallout76\Fallout76.ex
+
+Arena Breakout: Infinite
+Win64\UAGame.exe
+
+Valorant
+Win64\Valorant-Win64-Shipping.exe
+
+RAID: Shadow Legends
+build\Raid.exe
+
+Torchlight: Infinite
+Win64\torchlight_infinite.exe
+
+Blue Protocol: Star Resonance
+Win64\bpsr.exe
+
+Once Human
+Once Human\Once_Human.exe
+
+Arknights: Endfield
+Game\Endfield.exe
+
+2XKO
+2XKO\Live\Lion\Binaries\Win64\Lion-Win64-Shipping.exe
+
+Highguard
+Win64\HighguardClient-Win64-Shipping.exe
+
+Skate
+Steam\steamapps\common\skate\skate.exe
+
+Summoners War
+Summoners War\SummonersWar.exe
+
+World of Warcraft: Midnight
+World of Warcraft\_retail_\Wow.exe
+
+Grounded 2
+WinGRTS\Grounded2-WinGRTS-Shipping.exe
+
+Vindictus
+Vindictus\Vindictus.exe
+
+Opera
+Opera GX\opera.exe
+
+Genshin Impact
+GenshinImpact.exe
+
+FC26
+C:\Program Files\EA Games\EA SPORTS FC 26/FC26.exe

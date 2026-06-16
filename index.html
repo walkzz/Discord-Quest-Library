@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Client Simulator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=PT+Sans&display=swap');
+    
+    :root {
+      --bg-dark: #202020;
+      --bg-titlebar: #2d2d2d;
+      --bg-card: #2b2b2b;
+      --accent: #5865F2;
+      --text: #ffffff;
+      --text-muted: #a3a3a3;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Lexend', 'PT Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    #titlebar {
+      -webkit-app-region: drag;
+      height: 32px;
+      background: var(--bg-titlebar);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 16px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    #version-number{
+      color: #646ee0;
+    }
+
+    .window-controls {
+      -webkit-app-region: no-drag;
+      display: flex;
+    }
+
+    .win-btn {
+      width: 46px;
+      height: 32px;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .win-btn:hover { background: #404040; }
+    .win-btn.close:hover { background: #e81123; }
+
+    #content {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .btn-refresh {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: 'Lexend', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-refresh:hover { background: #4752C4; }
+
+    .quests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .game-card {
+      background: var(--bg-card);
+      border: 1px solid #3f3f3f;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 110px;
+    }
+
+    .game-title {
+      font-weight: 600;
+      font-size: 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-play {
+      background: #36a058;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      font-family: 'Lexend', sans-serif;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .btn-play:hover { background: #1fa74a; color: #f7f6f6;}
+  </style>
+</head>
+<body>
+  <div id="titlebar">
+    <span>Game Library</span><span id="version-number">v1.0.0</span>
+    <div class="window-controls">
+      <button class="win-btn" id="btn-min">─</button>
+      <button class="win-btn" id="btn-max">□</button>
+      <button class="win-btn close" id="btn-close">✕</button>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="header">
+      <h2>Available Games</h2>
+      <button class="btn-refresh" id="btn-refresh">Refresh List</button>
+    </div>
+    <div id="quests-container" class="quests-grid"></div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
