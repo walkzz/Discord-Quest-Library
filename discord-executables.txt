@@ -96,3 +96,6 @@ GenshinImpact.exe
 
 FC26
 C:\Program Files\EA Games\EA SPORTS FC 26/FC26.exe
+
+The Mound: Omen Of Cthulhu
+TheMound-Win64-Shipping.exe
