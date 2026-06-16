@@ -7,8 +7,8 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 600,
+    width: 1100,
+    height: 800,
     frame: false, 
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -83,7 +83,6 @@ ipcMain.on('launch-dummy', (event, targetExeName) => {
       }
     });
     
-    event.reply('launch-status', { success: true, message: `Game ${targetExeName} launched.` });
   } catch (error) {
     event.reply('launch-status', { success: false, message: `File system error: ${error.message}` });
   }
