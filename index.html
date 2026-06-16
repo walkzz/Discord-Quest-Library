@@ -90,6 +90,48 @@
 
     .btn-refresh:hover { background: #4752C4; }
 
+    .search-container {
+      position: relative;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 12px 40px 12px 16px;
+      background-color: var(--bg-card);
+      border: 1px solid #3f3f3f;
+      border-radius: 24px;
+      color: #ffffff;
+      font-family: 'Lexend', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+
+    #search-input:focus {
+      border-color: var(--accent);
+    }
+
+    #btn-clear-search {
+      position: absolute;
+      right: 16px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      display: none;
+    }
+
+    #btn-clear-search:hover {
+      color: #ffffff;
+    }
+
     .quests-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -145,6 +187,12 @@
       <h2>Available Games</h2>
       <button class="btn-refresh" id="btn-refresh">Refresh List</button>
     </div>
+
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search game title..." autocomplete="off">
+      <button id="btn-clear-search">✕</button>
+    </div>
+
     <div id="quests-container" class="quests-grid"></div>
   </div>
 
