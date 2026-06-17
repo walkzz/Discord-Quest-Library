@@ -99,3 +99,9 @@ C:\Program Files\EA Games\EA SPORTS FC 26/FC26.exe
 
 The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
+
+Roblox
+RobloxPlayerBeta.exe
+
+Empulse
+C:\Program Files (x86)\Steam\steamapps\common\EMPULSE\OrionClient-Win64-Shipping.exe
