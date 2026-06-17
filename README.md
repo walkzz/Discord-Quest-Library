@@ -1,6 +1,6 @@
 # Orb Automator
 
-A lightweight application that allows you to generate an executable for any game. It fools Discord into thinking the game is active, letting you earn Discord orbs or customize your active status without wasting CPU or RAM on running the actual game.
+A lightweight application that allows you to launch an executable for any game. It fools Discord into thinking the game is active, letting you earn Discord orbs or customize your active status without wasting CPU or RAM on running the actual game.
 
 ## Features
 * **Lightweight Background Process:** Completely resource-free.
