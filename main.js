@@ -3,21 +3,43 @@ const path = require('path');
 const fs = require('fs');
 const { spawn } = require('child_process');
 
+const isDummyMode = process.argv.includes('--dummy-mode');
+
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({
-    width: 1100, // default size window, can be changed later
-    height: 800,
-    frame: false, 
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      contextIsolation: true,
-      nodeIntegration: false
-    }
-  });
-  
-  mainWindow.loadFile('index.html');
+  if (isDummyMode) {
+    const titleIndex = process.argv.indexOf('--dummy-mode') + 1;
+    const gameTitle = process.argv[titleIndex] || "Discord Game";
+
+    const dummyWin = new BrowserWindow({
+      width: 450,
+      height: 250,
+      title: gameTitle,
+      autoHideMenuBar: true,
+      backgroundColor: '#202020'
+    });
+
+    dummyWin.loadURL(`data:text/html;charset=utf-8,
+      <body style="background-color:%23202020; color:white; font-family:'Segoe UI', Tahoma, sans-serif; text-align:center; padding-top: 50px;">
+        <h2>${gameTitle} Simulation Active</h2>
+        <p style="color:%23a3a3a3;">Discord is now tracking the application.<br>Leave this window open for 15 minutes.</p>
+      </body>
+    `);
+  } else {
+    mainWindow = new BrowserWindow({
+      width: 1100, 
+      height: 800,
+      frame: false, 
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        contextIsolation: true,
+        nodeIntegration: false
+      }
+    });
+    
+    mainWindow.loadFile('index.html');
+  }
 }
 
 app.whenReady().then(createWindow);
@@ -27,9 +49,10 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('window-control', (event, command) => {
+  if (!mainWindow) return;
   if (command === 'minimize') mainWindow.minimize();
   if (command === 'maximize') mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize();
-  if (command === 'close') mainWindow.close();
+  if (command === 'close') app.quit(); 
 });
 
 ipcMain.handle('get-game-list', async () => {
@@ -67,14 +90,12 @@ ipcMain.on('launch-dummy', (event, targetExeName, gameTitle) => {
       fs.linkSync(currentExe, targetExe);
     }
 
-    const workerPath = path.join(__dirname, 'worker.js');
-    const child = spawn(targetExe, [workerPath, gameTitle], {
+    const child = spawn(targetExe, ['--dummy-mode', gameTitle], {
       detached: true,
       stdio: 'ignore'
     });
 
     child.unref();
-    // didn't put successful message here cuz it will bloat the screen, useless, not needed.
   } catch (error) {
     event.reply('launch-status', { success: false, message: `System error: ${error.message}` });
   }
