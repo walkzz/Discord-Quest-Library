@@ -42,7 +42,7 @@ function renderGames(gamesToDisplay) {
     `;
 
     card.querySelector('.btn-play').addEventListener('click', () => {
-      window.api.launchDummy(game.exe);
+      window.api.launchDummy(game.exe, game.name);
     });
 
     container.appendChild(card);
