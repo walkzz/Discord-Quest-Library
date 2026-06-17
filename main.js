@@ -11,9 +11,10 @@ function createWindow() {
   if (isDummyMode) {
     const titleIndex = process.argv.indexOf('--dummy-mode') + 1;
     const gameTitle = process.argv[titleIndex] || "Discord Game";
-
+    
+    // minimized window where you click the "launch quest" button
     const dummyWin = new BrowserWindow({
-      width: 450,
+      width: 450, 
       height: 250,
       title: gameTitle,
       autoHideMenuBar: true,
@@ -27,6 +28,7 @@ function createWindow() {
       </body>
     `);
   } else {
+    // main window
     mainWindow = new BrowserWindow({
       width: 1100, 
       height: 800,
