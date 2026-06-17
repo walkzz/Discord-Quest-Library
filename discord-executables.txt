@@ -1,6 +1,9 @@
 Where Winds Meet
 Win64\wwm.exe
 
+Zenless Zone Zero
+C:\Program Files\HoYoPlay\games\ZenlessZoneZero Game/ZenlessZoneZero.exe
+
 Wuthering Waves
 Win64\Wuthering Waves.exe
 
