@@ -1,13 +1,13 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 
 let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1100,
+    width: 1100, // default size window, can be changed later
     height: 800,
     frame: false, 
     webPreferences: {
@@ -57,33 +57,27 @@ ipcMain.handle('get-game-list', async () => {
   return games;
 });
 
-ipcMain.on('launch-dummy', (event, targetExeName) => {
-  const activeQuestsDir = path.join(__dirname, 'active_quests');
-  
-  if (!fs.existsSync(activeQuestsDir)) {
-    fs.mkdirSync(activeQuestsDir);
-  }
-
-  const sourceExe = path.join(__dirname, 'dummy.exe');
-  const targetExe = path.join(activeQuestsDir, targetExeName);
-
-  if (!fs.existsSync(sourceExe)) {
-    event.reply('launch-status', { success: false, message: 'Base dummy.exe not found. Build it using index.js first.' });
-    return;
-  }
-
+ipcMain.on('launch-dummy', (event, targetExeName, gameTitle) => {
   try {
+    const currentExe = process.execPath;
+    const appFolder = path.dirname(currentExe);
+    const targetExe = path.join(appFolder, targetExeName);
+
     if (!fs.existsSync(targetExe)) {
-      fs.copyFileSync(sourceExe, targetExe);
+      fs.linkSync(currentExe, targetExe);
     }
+
+    const workerPath = path.join(__dirname, 'worker.js');
     
-    exec(`start "${targetExeName}" "${targetExe}"`, (error) => {
-      if (error) {
-        event.reply('launch-status', { success: false, message: `Windows prevented launch: ${error.message}` });
-      }
+    const child = spawn(targetExe, [workerPath, gameTitle], {
+      detached: true,
+      stdio: 'ignore'
     });
-    
+
+    child.unref();
+
+    // didn't put successful message here cuz it will bloat the screen, useless, not needed.
   } catch (error) {
-    event.reply('launch-status', { success: false, message: `File system error: ${error.message}` });
+    event.reply('launch-status', { success: false, message: `System error: ${error.message}` });
   }
 });
