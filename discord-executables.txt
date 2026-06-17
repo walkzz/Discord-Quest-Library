@@ -1,3 +1,30 @@
+Where Winds Meet
+Win64\wwm.exe
+
+Wuthering Waves
+Win64\Wuthering Waves.exe
+
+Roblox
+RobloxPlayerBeta.exe
+
+Valorant
+Win64\Valorant-Win64-Shipping.exe
+
+Once Human
+Once Human\Once_Human.exe
+
+Arknights: Endfield
+Game\Endfield.exe
+
+Empulse
+C:\Program Files (x86)\Steam\steamapps\common\EMPULSE\OrionClient-Win64-Shipping.exe
+
+Genshin Impact
+GenshinImpact.exe
+
+FC26
+C:\Program Files\EA Games\EA SPORTS FC 26/FC26.exe
+
 Fortnite
 Win64\FortniteClient-Win64-Shipping.exe
 
@@ -9,12 +36,6 @@ Win64\TslGame.exe
 
 Terminull Brigade
 Win64\Rouge-Win64-Shipping.exe
-
-Where Winds Meet
-Win64\wwm.exe
-
-Wuthering Waves
-Win64\Wuthering Waves.exe
 
 Comet AI Browser
 Perplexity\Comet\Application\comet.exe
@@ -49,9 +70,6 @@ Fallout76\Fallout76.ex
 Arena Breakout: Infinite
 Win64\UAGame.exe
 
-Valorant
-Win64\Valorant-Win64-Shipping.exe
-
 RAID: Shadow Legends
 build\Raid.exe
 
@@ -60,12 +78,6 @@ Win64\torchlight_infinite.exe
 
 Blue Protocol: Star Resonance
 Win64\bpsr.exe
-
-Once Human
-Once Human\Once_Human.exe
-
-Arknights: Endfield
-Game\Endfield.exe
 
 2XKO
 2XKO\Live\Lion\Binaries\Win64\Lion-Win64-Shipping.exe
@@ -91,17 +103,5 @@ Vindictus\Vindictus.exe
 Opera
 Opera GX\opera.exe
 
-Genshin Impact
-GenshinImpact.exe
-
-FC26
-C:\Program Files\EA Games\EA SPORTS FC 26/FC26.exe
-
 The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
-
-Roblox
-RobloxPlayerBeta.exe
-
-Empulse
-C:\Program Files (x86)\Steam\steamapps\common\EMPULSE\OrionClient-Win64-Shipping.exe
