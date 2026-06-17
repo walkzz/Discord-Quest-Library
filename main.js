@@ -68,14 +68,12 @@ ipcMain.on('launch-dummy', (event, targetExeName, gameTitle) => {
     }
 
     const workerPath = path.join(__dirname, 'worker.js');
-    
     const child = spawn(targetExe, [workerPath, gameTitle], {
       detached: true,
       stdio: 'ignore'
     });
 
     child.unref();
-
     // didn't put successful message here cuz it will bloat the screen, useless, not needed.
   } catch (error) {
     event.reply('launch-status', { success: false, message: `System error: ${error.message}` });
