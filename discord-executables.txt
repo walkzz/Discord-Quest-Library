@@ -7,6 +7,9 @@ Win64\Wuthering Waves.exe
 Zenless Zone Zero
 ZenlessZoneZero Game\ZenlessZoneZero.exe
 
+GOALS
+GOALS\Game\Binaries\Win64\Goals.exe
+
 Roblox
 RobloxPlayerBeta.exe
 
