@@ -6,7 +6,7 @@ const { spawn, execSync } = require('child_process');
 const createdFiles = new Set();
 const activeProcesses = [];
 
-const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/walkzz/Discord-Quest-Library/refs/heads/legacy-mode-update/discord-executables.txt';
+const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/walkzz/Discord-Quest-Library/refs/heads/main/discord-executables.txt';
 const isDummyMode = process.env.QUEST_DUMMY_MODE === 'true';
 const MANIFEST_FILE = '.quest-links.json';
 
