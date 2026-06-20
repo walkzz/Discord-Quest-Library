@@ -114,3 +114,6 @@ TheMound-Win64-Shipping.exe
 
 test 123
 test.exe
+
+Another test
+test123.exe
