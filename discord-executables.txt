@@ -111,9 +111,3 @@ Opera GX\opera.exe // not working
 
 The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
-
-Roblox Best Game?
-head.exe
-
-cats
-catos.exe
