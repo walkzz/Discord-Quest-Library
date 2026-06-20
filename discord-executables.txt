@@ -117,3 +117,7 @@ test.exe
 
 Another test
 test123.exe
+
+
+ewqeqweqwe
+dotdot.exe
