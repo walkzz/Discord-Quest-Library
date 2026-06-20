@@ -5,19 +5,19 @@ Wuthering Waves
 Win64\Wuthering Waves.exe
 
 Zenless Zone Zero
-ZenlessZoneZero Game/ZenlessZoneZero.exe // not working
+Program Files\HoYoPlay\games\ZenlessZoneZero Game\ZenlessZoneZero.exe // not working
 
 GOALS
-Win64\Goals.exe // not working
+Program Files (x86)\Steam\steamapps\common\GOALS\GOALS.exe // not working
 
 Roblox
 RobloxPlayerBeta.exe
 
 Valorant
-Win64\Valorant-Win64-Shipping.exe // not working
+Riot Games\VALORANT\live\ShooterGame\Binaries\Win64\VALORANT-Win64-Shipping.exe // not working
 
 Once Human
-Once Human\Once_Human.exe // not working
+Program Files (x86)\Steam\steamapps\common\Once Human\Once Human\Once_Human.exe // not working
 
 Arknights: Endfield
 Game\Endfield.exe
@@ -29,22 +29,22 @@ Genshin Impact
 GenshinImpact.exe
 
 FC26
-EA SPORTS FC 26/FC26.exe // not working
+Program Files\EA Games\EA SPORTS FC 26\FC26.exe // not working
 
 Fortnite
 Win64\FortniteClient-Win64-Shipping.exe
 
 Marvel Rivals
-Win64\Marvel-Win64-Shipping.exe // not working
+Program Files (x86)\Steam\steamapps\common\Marvel Rivals\Marvel\Binaries\Win64\Marvel-Win64-Shipping.exe // not working
 
 PUBG
 Win64\TslGame.exe
 
 Terminull Brigade
-Win64\Rouge-Win64-Shipping.exe // not working
+steamapps\common\Rogueteers\Rouge\Binaries\Win64\Rouge-Win64-Shipping.exe // not working
 
 Comet AI Browser
-Application\comet.exe // not working
+%LOCALAPPDATA%\Perplexity\Comet\Application\comet.exe // not working
 
 Destiny 2
 Destiny 2\destiny2.exe
@@ -62,7 +62,7 @@ Arc Raiders
 Arc Raiders\PioneerGame.exe
 
 Hunt: Showdown 1896
-win_x64\HuntGame.exe // not working
+Program Files (x86)\Steam\steamapps\common\Hunt Showdown 1896\bin\win_x64\HuntGame.exe // not working
 
 Delta Force
 Win64\DeltaForceClient-Win64-Shipping.exe
@@ -71,7 +71,7 @@ Fallout 4
 Fallout4\Fallout4.exe
 
 Fallout 76
-Fallout76\Fallout76.exe // not working
+Program Files (x86)\Steam\steamapps\common\Fallout76\Fallout76.exe // not working
 
 Arena Breakout: Infinite
 Win64\UAGame.exe
@@ -86,7 +86,7 @@ Blue Protocol: Star Resonance
 Win64\bpsr.exe
 
 2XKO
-Win64\Lion-Win64-Shipping.exe // not working
+Riot Games\2XKO\Live\Lion.exe // not working
 
 Highguard
 Win64\HighguardClient-Win64-Shipping.exe
@@ -95,19 +95,19 @@ Skate
 skate\skate.exe // not working
 
 Summoners War
-Summoners War\SummonersWar.exe // not working
+Program Files (x86)\Steam\steamapps\common\Summoners War\SummonersWar.exe // not working
 
 World of Warcraft: Midnight
-World of Warcraft\_retail_\Wow.exe // not working
+Program Files (x86)\World of Warcraft\_retail_\Wow.exe // not working
 
 Grounded 2
-WinGRTS\Grounded2-WinGRTS-Shipping.exe // not working
+Program Files (x86)\Steam\steamapps\common\Grounded 2\WinGRTS\Grounded2-WinGRTS-Shipping.exe // not working
 
 Vindictus
 Vindictus\Vindictus.exe
 
 Opera
-Opera GX\opera.exe // not working
+Program Files\Opera GX\opera.exe // not working
 
 The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
