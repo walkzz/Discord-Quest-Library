@@ -121,3 +121,6 @@ test123.exe
 
 ewqeqweqwe
 dotdot.exe
+
+gta6 is just a myth
+gta6.exe
