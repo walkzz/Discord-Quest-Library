@@ -1,0 +1,9 @@
+{
+  "name": "quest-legacy-builder",
+  "version": "1.1.0",
+  "description": "Standalone game-process simulator. Compile with pkg, then manually place the output exe into the exact subfolder structure Discord expects for quest detection.",
+  "main": "index.js",
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  }
+}
