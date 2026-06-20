@@ -111,16 +111,3 @@ Opera GX\opera.exe // not working
 
 The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
-
-test 123
-test.exe
-
-Another test
-test123.exe
-
-
-ewqeqweqwe
-dotdot.exe
-
-gta6 is just a myth
-gta6.exe
