@@ -111,3 +111,6 @@ Program Files\Opera GX\opera.exe // not working
 
 The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
+
+Just a Test
+Test.exe
