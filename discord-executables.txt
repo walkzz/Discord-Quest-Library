@@ -101,4 +101,4 @@ The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
 
 Old School Runescape
-JagexLauncher.exe
+Program Files (x86)\Jagex Launcher\JagexLauncher.exe // not working
