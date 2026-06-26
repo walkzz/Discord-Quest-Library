@@ -1,11 +1,17 @@
 document.getElementById('btn-min').addEventListener('click',   () => window.api.controlWindow('minimize'));
 document.getElementById('btn-max').addEventListener('click',   () => window.api.controlWindow('maximize'));
 document.getElementById('btn-close').addEventListener('click', () => window.api.controlWindow('close'));
-document.getElementById('btn-legacy').addEventListener('click', () => window.api.openLegacyMode());
 
 window.api.onLaunchStatus((data) => alert(data.message));
 
 let allGames = [];
+let isAlphabetical = false;
+
+document.getElementById('btn-alphabetical').addEventListener('click', (e) => {
+  isAlphabetical = !isAlphabetical;
+  e.target.classList.toggle('active', isAlphabetical);
+  renderGames(allGames);
+});
 
 async function loadGames() {
   const container = document.getElementById('quests-container');
@@ -23,14 +29,24 @@ function renderGames(games) {
   const container = document.getElementById('quests-container');
   container.innerHTML = '';
 
-  if (games.length === 0) {
+  let displayGames = [...games];
+  if (isAlphabetical) {
+    displayGames.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  if (displayGames.length === 0) {
     container.innerHTML = '<span style="color: var(--text-muted);">No matching games found.</span>';
     return;
   }
 
-  games.forEach(game => {
+  displayGames.forEach(game => {
     const card = document.createElement('div');
-    card.className = 'game-card' + (game-card ? '' : ' not-working');
+    card.className = 'game-card' + (game.working ? '' : ' not-working');
+    const coverEl = document.createElement('img');
+    coverEl.className = 'game-cover';
+    const safeImageName = game.name.replace(/[:\/\\?%*|"<>]/g, '');
+    coverEl.src = `./covers/${safeImageName}.webp`;
+    coverEl.onerror = () => coverEl.src = './covers/default.jpg'; 
 
     const titleEl = document.createElement('div');
     titleEl.className = 'game-title';
@@ -50,11 +66,11 @@ function renderGames(games) {
     } else {
       // send the user straight to legacy mode if the application isn't working.
       btn.textContent = 'Use Legacy Mode';
-      btn.style.background = '#e8454a';
+      btn.classList.add('btn-legacy-mode');
       btn.addEventListener('click', () => window.api.openLegacyMode());
     }
 
-    card.append(titleEl, pathEl, btn);
+    card.append(coverEl, titleEl, pathEl, btn);
     container.appendChild(card);
   });
 }
@@ -75,7 +91,13 @@ clearSearchBtn.addEventListener('click', () => {
   searchInput.focus();
 });
 
-document.getElementById('btn-refresh').addEventListener('click', () => {
+document.getElementById('btn-refresh').addEventListener('click', (e) => {
+  const svgIcon = e.currentTarget.querySelector('.refresh-svg');
+  if (svgIcon) {
+    svgIcon.classList.add('spinning');
+    setTimeout(() => svgIcon.classList.remove('spinning'), 1000);
+  }
+
   searchInput.value = '';
   clearSearchBtn.style.display = 'none';
   loadGames();
