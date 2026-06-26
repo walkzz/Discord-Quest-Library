@@ -3,6 +3,14 @@ const path = require('path');
 const fs = require('fs');
 const { spawn, execSync } = require('child_process');
 
+try {
+  require('electron-reload')(__dirname, {
+    electron: path.join(__dirname, 'node_modules', '.bin', 'electron.cmd')
+  });
+} catch (err) {
+  console.log('Running in production or electron-reload not installed.');
+}
+
 const createdFiles = new Set();
 const activeProcesses = [];
 
