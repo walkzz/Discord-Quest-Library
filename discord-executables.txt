@@ -101,4 +101,4 @@ The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
 
 Old School Runescape
-osclient.exe
+Program Files (x86)\Steam\steamapps\common\Old School RuneScape\bin\win64\osclient.exe // not working
