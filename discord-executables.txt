@@ -43,17 +43,11 @@ Win64\TslGame.exe
 Terminull Brigade
 steamapps\common\Rogueteers\Rouge\Binaries\Win64\Rouge-Win64-Shipping.exe // not working
 
-Comet AI Browser
-%LOCALAPPDATA%\Perplexity\Comet\Application\comet.exe // not working
-
 Destiny 2
 Destiny 2\destiny2.exe
 
 Risk of Rain 2
 Risk of Rain 2\Risk of Rain 2.exe
-
-Storm Lancers Demo
-Storm Lancers Demo\StormLancersDemo.exe
 
 Path of Exile 2
 Grinding Gear Games\Path of Exile 2\pathofexile.exe
@@ -88,9 +82,6 @@ Win64\bpsr.exe
 2XKO
 Riot Games\2XKO\Live\Lion.exe // not working
 
-Highguard
-Win64\HighguardClient-Win64-Shipping.exe
-
 Skate
 skate\skate.exe // not working
 
@@ -106,11 +97,5 @@ Program Files (x86)\Steam\steamapps\common\Grounded 2\WinGRTS\Grounded2-WinGRTS-
 Vindictus
 Vindictus\Vindictus.exe
 
-Opera
-Program Files\Opera GX\opera.exe // not working
-
 The Mound: Omen Of Cthulhu
 TheMound-Win64-Shipping.exe
-
-Just a Test
-Test.exe
