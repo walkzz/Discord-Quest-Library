@@ -160,6 +160,8 @@ ipcMain.on('window-control', (event, command) => {
   if (command === 'close') app.quit();
 });
 
+ipcMain.handle('get-version', () => app.getVersion());
+
 // fetch the game list from the discord-executables.txt
 ipcMain.handle('get-game-list', async () => {
   const localBackupPath = path.join(path.dirname(process.execPath), 'discord-executables.txt');
