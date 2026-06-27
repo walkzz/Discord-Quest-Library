@@ -1,4 +1,5 @@
 node_modules/
 Quest Launcher-win32-x64
 active_quests
+dist
 *.zip
