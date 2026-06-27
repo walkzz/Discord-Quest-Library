@@ -1,13 +1,33 @@
 {
   "name": "quest-automator",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dev": "nodemon --watch main.js --watch index.html --watch renderer.js --exec electron ."
+    "dev": "nodemon --watch main.js --watch index.html --watch renderer.js --exec electron .",
+    "package": "electron-builder --win --x64"
   },
+  "build": {
+  "appId": "com.questautomator.app",
+  "files": [
+    "main.js",
+    "preload.js",
+    "renderer.js",
+    "index.html",
+    "covers/",
+    "legacy/",
+    "discord-executables.txt"
+  ],
+  "asarUnpack": [
+    "legacy/**/*"
+  ],
+  "win": {
+    "target": "portable"
+  }
+},
   "devDependencies": {
     "electron": "^29.4.6",
+    "electron-builder": "^26.15.3",
     "electron-packager": "^17.1.2",
     "electron-reload": "^2.0.0-alpha.1",
     "nodemon": "^3.1.14",
