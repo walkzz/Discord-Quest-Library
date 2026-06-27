@@ -1,6 +1,6 @@
 {
   "name": "quest-launcher",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -8,23 +8,23 @@
     "package": "electron-builder --win --x64"
   },
   "build": {
-  "appId": "com.questautomator.app",
-  "files": [
-    "main.js",
-    "preload.js",
-    "renderer.js",
-    "index.html",
-    "covers/",
-    "legacy/",
-    "discord-executables.txt"
-  ],
-  "asarUnpack": [
-    "legacy/**/*"
-  ],
-  "win": {
-    "target": "portable"
-  }
-},
+    "appId": "com.questautomator.app",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "covers/",
+      "legacy/",
+      "discord-executables.txt"
+    ],
+    "asarUnpack": [
+      "legacy/**/*"
+    ],
+    "win": {
+      "target": "portable"
+    }
+  },
   "devDependencies": {
     "electron": "^29.4.6",
     "electron-builder": "^26.15.3",
