@@ -2,6 +2,9 @@ document.getElementById('btn-min').addEventListener('click',   () => window.api.
 document.getElementById('btn-max').addEventListener('click',   () => window.api.controlWindow('maximize'));
 document.getElementById('btn-close').addEventListener('click', () => window.api.controlWindow('close'));
 
+window.api.getVersion().then(v => {
+  document.getElementById('version-number').textContent = `v${v}`;
+});
 window.api.onLaunchStatus((data) => alert(data.message));
 
 let allGames = [];

@@ -5,5 +5,6 @@ contextBridge.exposeInMainWorld('api', {
   getGameList: () => ipcRenderer.invoke('get-game-list'),
   launchDummy: (exeName, gameTitle) => ipcRenderer.send('launch-dummy', exeName, gameTitle),
   openLegacyMode: () => ipcRenderer.send('open-legacy-mode'),
-  onLaunchStatus: (callback) => ipcRenderer.on('launch-status', (_event, data) => callback(data))
+  onLaunchStatus: (callback) => ipcRenderer.on('launch-status', (_event, data) => callback(data)),
+  getVersion: () => ipcRenderer.invoke('get-version')
 });
