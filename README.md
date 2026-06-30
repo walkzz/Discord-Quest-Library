@@ -33,7 +33,7 @@ A lightweight application that allows you to launch an executable for any game. 
 <br>
 <img width="538" height="389" alt="Screenshot 2026-06-30 223744" src="https://github.com/user-attachments/assets/6bf682b4-500f-4f0f-8e32-1407a83d1059" />
 <br>
-4. Once the quest is completed you can safely terminate the command prompt(CMD) or exit the application altogether.
+4. Once the quest is completed you can safely terminate the command prompt(CMD) or exit the application altogether. <br>
 <img width="526" height="165" alt="Screenshot 2026-06-30 224335" src="https://github.com/user-attachments/assets/76ada328-6183-40d4-8026-e679a9d565ed" />
 
 
