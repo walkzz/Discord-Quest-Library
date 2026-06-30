@@ -59,7 +59,7 @@ Hunt: Showdown 1896
 Program Files (x86)\Steam\steamapps\common\Hunt Showdown 1896\bin\win_x64\HuntGame.exe // not working
 
 Delta Force
-Win64\DeltaForceClient-Win64-Shipping.exe
+Win64\DeltaForceClient-Win64-Shipping.exe // not working
 
 Fallout 4
 Fallout4\Fallout4.exe
