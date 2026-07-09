@@ -102,3 +102,6 @@ TheMound-Win64-Shipping.exe
 
 Old School Runescape
 Program Files (x86)\Steam\steamapps\common\Old School RuneScape\bin\win64\osclient.exe // not working
+
+NTE: Neverness to Everness
+Neverness To Everness\Client\WindowsNoEditor\HT\Binaries\Win64\HTGame.exe
