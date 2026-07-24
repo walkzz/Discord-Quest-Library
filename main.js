@@ -1,25 +1,8 @@
-/*
- * Copyright (C) 2026 Pavel Toshinski
- * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <https://www.gnu.org/licenses/>.
- */
-
-
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { spawn, execSync } = require('child_process');
+const { autoUpdater } = require('electron-updater');
 
 try {
   require('electron-reload')(__dirname, {
@@ -31,7 +14,6 @@ try {
 
 const createdFiles = new Set();
 const activeProcesses = [];
-
 const GITHUB_RAW_URL = 'https://raw.githubusercontent.com/walkzz/Discord-Quest-Library/refs/heads/main/discord-executables.txt';
 const isDummyMode = process.env.QUEST_DUMMY_MODE === 'true';
 const MANIFEST_FILE = '.quest-links.json';
@@ -53,7 +35,7 @@ function parseGameList(content) {
         name: lines[i],
         exePath,
         exeName: path.basename(exePath),
-        working // false → render red, route to Legacy Mode
+        working
       });
     }
   }
@@ -68,7 +50,7 @@ function readManifest() {
   try {
     const p = getManifestPath();
     if (fs.existsSync(p)) return JSON.parse(fs.readFileSync(p, 'utf-8'));
-  } catch (e) { /* corrupt or missing — treat as empty */ }
+  } catch (e) {}
   return [];
 }
 
@@ -95,7 +77,7 @@ function cleanupFolder() {
     const stillLocked = [];
 
     for (const filePath of manifest) {
-      if (path.resolve(filePath) === path.resolve(process.execPath)) continue; // never touch self
+      if (path.resolve(filePath) === path.resolve(process.execPath)) continue;
       if (fs.existsSync(filePath)) {
         try { fs.unlinkSync(filePath); }
         catch (e) { stillLocked.push(filePath); }
@@ -116,8 +98,6 @@ function getLegacyFolderPath() {
 
 function createWindow() {
   if (isDummyMode) {
-    
-    // small tracking window
     const gameTitle = process.env.QUEST_GAME_TITLE || 'Discord Game';
     const dummyWin  = new BrowserWindow({
       width: 450,
@@ -133,10 +113,7 @@ function createWindow() {
       </body>
     `);
   } else {
-    
-    // main game library
     cleanupFolder();
-
     mainWindow = new BrowserWindow({
       width: 1100,
       height: 800,
@@ -148,10 +125,15 @@ function createWindow() {
       }
     });
     mainWindow.loadFile('index.html');
+    
+    if (app.isPackaged) {
+      autoUpdater.checkForUpdatesAndNotify();
+    }
   }
 }
 
 app.whenReady().then(createWindow);
+
 app.on('will-quit', () => {
   for (const child of activeProcesses) {
     if (child.pid) {
@@ -170,7 +152,6 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
-// you know what this is doing duh
 ipcMain.on('window-control', (event, command) => {
   if (!mainWindow) return;
   if (command === 'minimize') mainWindow.minimize();
@@ -180,7 +161,6 @@ ipcMain.on('window-control', (event, command) => {
 
 ipcMain.handle('get-version', () => app.getVersion());
 
-// fetch the game list from the discord-executables.txt
 ipcMain.handle('get-game-list', async () => {
   const localBackupPath = path.join(path.dirname(process.execPath), 'discord-executables.txt');
   
@@ -194,26 +174,21 @@ ipcMain.handle('get-game-list', async () => {
     if (app.isPackaged) {
       fs.writeFileSync(localBackupPath, content, 'utf-8');
     }
-
     return games;
     
   } catch (error) {
     console.error("Network fetch failed, falling back to local file...", error);
-    
     if (fs.existsSync(localBackupPath)) {
       return parseGameList(fs.readFileSync(localBackupPath, 'utf-8'));
     }
-    
     const devPath = path.join(__dirname, 'discord-executables.txt');
     if (fs.existsSync(devPath)) {
        return parseGameList(fs.readFileSync(devPath, 'utf-8'));
     }
-
     return [];
   }
 });
 
-// launcher (automated mode - for the executables that are actually working without needing the subfolders(e.g, Roblox))
 ipcMain.on('launch-dummy', (event, targetExeName, gameTitle) => {
   try {
     const currentExe = process.execPath;
@@ -229,7 +204,7 @@ ipcMain.on('launch-dummy', (event, targetExeName, gameTitle) => {
       return;
     }
 
-    if (!fs.existsSync(targetExe)) fs.linkSync(currentExe, targetExe);
+    if (!fs.existsSync(targetExe)) fs.copyFileSync(currentExe, targetExe);
     createdFiles.add(targetExe);
     addToManifest(targetExe);
 
@@ -253,7 +228,6 @@ ipcMain.on('launch-dummy', (event, targetExeName, gameTitle) => {
   }
 });
 
-// legacy mode window, use this when games are not working
 ipcMain.on('open-legacy-mode', (event) => {
   const legacyPath = getLegacyFolderPath();
 
