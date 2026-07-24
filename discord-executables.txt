@@ -106,8 +106,8 @@ Program Files (x86)\Steam\steamapps\common\Old School RuneScape\bin\win64\osclie
 NTE: Neverness to Everness
 Neverness To Everness\Client\WindowsNoEditor\HT\Binaries\Win64\HTGame.exe // not working
 
-Umamusume: Pretty Derby Quest
+Umamusume: Pretty Derby
 UmamusumePrettyDerby\UmamusumePrettyDerby.exe // not working
 
-Stalone
+Stalzone
 bin\stalcraftw.exe // not working
