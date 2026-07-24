@@ -8,12 +8,9 @@ window.api.getVersion().then(v => {
 window.api.onLaunchStatus((data) => alert(data.message));
 
 let allGames = [];
-let isAlphabetical = false;
 
-document.getElementById('btn-alphabetical').addEventListener('click', (e) => {
-  isAlphabetical = !isAlphabetical;
-  e.target.classList.toggle('active', isAlphabetical);
-  renderGames(allGames);
+document.getElementById('btn-legacy-global').addEventListener('click', () => {
+  window.api.openLegacyMode();
 });
 
 async function loadGames() {
@@ -32,19 +29,15 @@ function renderGames(games) {
   const container = document.getElementById('quests-container');
   container.innerHTML = '';
 
-  let displayGames = [...games];
-  if (isAlphabetical) {
-    displayGames.sort((a, b) => a.name.localeCompare(b.name));
-  }
-
-  if (displayGames.length === 0) {
+  if (games.length === 0) {
     container.innerHTML = '<span style="color: var(--text-muted);">No matching games found.</span>';
     return;
   }
 
-  displayGames.forEach(game => {
+  games.forEach(game => {
     const card = document.createElement('div');
     card.className = 'game-card' + (game.working ? '' : ' not-working');
+
     const coverEl = document.createElement('img');
     coverEl.className = 'game-cover';
     const safeImageName = game.name.replace(/[:\/\\?%*|"<>]/g, '');
@@ -67,7 +60,6 @@ function renderGames(games) {
       btn.textContent = 'Launch Quest';
       btn.addEventListener('click', () => window.api.launchDummy(game.exeName, game.name));
     } else {
-      // send the user straight to legacy mode if the application isn't working.
       btn.textContent = 'Use Legacy Mode';
       btn.classList.add('btn-legacy-mode');
       btn.addEventListener('click', () => window.api.openLegacyMode());
@@ -103,7 +95,7 @@ document.getElementById('btn-refresh').addEventListener('click', (e) => {
 
   searchInput.value = '';
   clearSearchBtn.style.display = 'none';
-  loadGames();
+  loadGames(); 
 });
 
 loadGames();
