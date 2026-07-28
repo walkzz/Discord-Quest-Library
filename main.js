@@ -16,7 +16,7 @@
  */
 
 
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { spawn, execSync } = require('child_process');
@@ -145,7 +145,45 @@ function createWindow() {
     mainWindow.loadFile('index.html');
     
     if (app.isPackaged) {
-      autoUpdater.checkForUpdatesAndNotify();
+      autoUpdater.autoDownload = false;
+
+      // autoUpdater.on('error', (err) => {
+      //   dialog.showMessageBox({
+      //     type: 'error',
+      //     title: 'Updater Error',
+      //     message: 'The auto-updater crashed:',
+      //     detail: err.toString()
+      //   });
+      // });
+      
+      autoUpdater.on('update-available', () => {
+        const dialogOpts = {
+          type: 'info',
+          buttons: ['Yes', 'Later'],
+          title: 'Update Available',
+          message: 'Would you like to upgrade to the newest version?'
+        };
+
+        dialog.showMessageBox(dialogOpts).then((returnValue) => {
+          if (returnValue.response === 0) {
+            autoUpdater.downloadUpdate();
+          }
+        });
+      });
+
+      autoUpdater.on('update-not-available', () => {
+        dialog.showMessageBox({
+          type: 'info',
+          title: 'Up to Date',
+          message: 'Quest-Launcher updated to the latest version.'
+        });
+      });
+
+      autoUpdater.on('update-downloaded', () => {
+        autoUpdater.quitAndInstall();
+      });
+
+      autoUpdater.checkForUpdates();
     }
   }
 }
